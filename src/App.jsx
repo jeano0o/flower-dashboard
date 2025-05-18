@@ -1,4 +1,4 @@
-import Flower from './components/Flower';
+import Flower.js from './components/Flower';
 
 function App() {
   return (

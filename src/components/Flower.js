@@ -44,28 +44,30 @@ const Flower = () => {
     'Dark Green Fund': '#219653',
   };
 
-  return (
-    <div className="flower-box">
-      {error ? (
+return (
+  <div className="flower-box">
+    {error ? (
+      <>
         <p>{error}</p>
-      ) : (
-        petals.map((petal, idx) => (
-          <div
-            key={idx}
-            className="petal"
-            title={`${petal.ticker}: ${petal.thesis || 'no thesis yet'}`}
-            style={{
-              backgroundColor: colors[petal.theme] || '#ccc',
-              transform: `rotate(${idx * 15}deg) scale(${1 + petal.roi / 100})`,
-              opacity: 0.9 + petal.roi / 100,
-            }}
-          >
-            {petal.ticker}
-          </div>
-        ))
-      )}
-    </div>
-  );
+      </>
+    ) : (
+      petals.map((petal, idx) => (
+        <div
+          key={idx}
+          className="petal"
+          title={`${petal.ticker}: ${petal.thesis || 'no thesis yet'}`}
+          style={{
+            backgroundColor: colors[petal.theme] || '#ccc',
+            transform: `rotate(${idx * 15}deg) scale(${1 + petal.roi / 100})`,
+            opacity: 0.9 + petal.roi / 100,
+          }}
+        >
+          {petal.ticker}
+        </div>
+      ))
+    )}
+  </div>
+);
 };
 
 export default Flower;

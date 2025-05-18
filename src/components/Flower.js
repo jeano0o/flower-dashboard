@@ -37,20 +37,19 @@ const Flower = () => {
 
   const colors = {
     'Spice World': '#ff70a6',
-    "That's Rich": '#e63946',
+    "That's Rich": '#e63946', // ✅ straight ASCII apostrophe
     'The Emperor Has No Clothes': '#000000',
     'GothGloss': '#4b0082',
     'Technologis Broicus': '#56ccf2',
     'Dark Green Fund': '#219653',
   };
 
-return (
-  <div className="flower-box">
-    {error ? (
-      <p>{error}</p>
-    ) : (
-      petals.map((petal, idx) => {
-        return (
+  return (
+    <div className="flower-box">
+      {error ? (
+        <p>{error}</p>
+      ) : (
+        petals.map((petal, idx) => (
           <div
             key={idx}
             className="petal"
@@ -63,11 +62,10 @@ return (
           >
             {petal.ticker}
           </div>
-        );
-      })
-    )}
-  </div>
-);
+        ))
+      )}
+    </div>
+  );
 };
 
 export default Flower;

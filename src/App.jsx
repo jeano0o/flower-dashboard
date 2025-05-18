@@ -1,4 +1,4 @@
-import Flower from './components/Flower';
+import Flower from './components/Flower.jsx';
 
 function App() {
   return (

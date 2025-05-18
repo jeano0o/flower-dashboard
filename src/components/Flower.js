@@ -37,7 +37,7 @@ const Flower = () => {
 
   const colors = {
     'Spice World': '#ff70a6',
-    "That’s Rich": '#e63946',
+    "That's Rich": '#e63946',
     'The Emperor Has No Clothes': '#000000',
     'GothGloss': '#4b0082',
     'Technologis Broicus': '#56ccf2',
@@ -46,8 +46,9 @@ const Flower = () => {
 
   return (
     <div className="flower-box">
-      {error && <p>{error}</p>}
-      {!error &&
+      {error ? (
+        <p>{error}</p>
+      ) : (
         petals.map((petal, idx) => (
           <div
             key={idx}
@@ -61,7 +62,8 @@ const Flower = () => {
           >
             {petal.ticker}
           </div>
-        ))}
+        ))
+      )}
     </div>
   );
 };

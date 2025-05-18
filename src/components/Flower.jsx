@@ -35,42 +35,39 @@ const Flower = () => {
     fetchData();
   }, []);
 
-  const colors = {
-    'Spice World': '#ff70a6',
-    "That's Rich": '#e63946',
-    'The Emperor Has No Clothes': '#000000',
-    'GothGloss': '#4b0082',
-    'Technologis Broicus': '#56ccf2',
-    'Dark Green Fund': '#219653',
-  };
-
-  let content = <p>Loading...</p>;
-
-  if (error) {
-    content = <p>{error}</p>;
-  } else if (petals.length > 0) {
-    content = petals.map((petal, idx) => {
-      return (
-        <div
-          key={idx}
-          className="petal"
-          title={`${petal.ticker}: ${petal.thesis || 'no thesis yet'}`}
-          style={{
-            backgroundColor: colors[petal.theme] || '#ccc',
-            transform: `rotate(${idx * 15}deg) scale(${1 + petal.roi / 100})`,
-            opacity: 0.9 + petal.roi / 100,
-          }}
-        >
-          {petal.ticker}
-        </div>
-      );
-    });
-  }
-
-  return <div className="flower-box">{content}</div>;
+  return (
+    <div className="flower-box">
+      {error ? (
+        <p>{error}</p>
+      ) : (
+        petals.map((petal, idx) => (
+          <div
+            key={idx}
+            style={{
+              padding: '8px',
+              margin: '4px',
+              background: '#eee',
+              borderRadius: '8px',
+              display: 'inline-block',
+              textAlign: 'left',
+              fontFamily: 'monospace',
+              minWidth: '120px',
+            }}
+          >
+            <div><strong>Ticker:</strong> {petal.ticker}</div>
+            <div><strong>Mood:</strong> {petal.mood}</div>
+            <div><strong>Theme:</strong> {petal.theme}</div>
+            <div><strong>Thesis:</strong> {petal.thesis}</div>
+            <div><strong>ROI:</strong> {petal.roi}</div>
+          </div>
+        ))
+      )}
+    </div>
+  );
 };
 
 export default Flower;
+
 
 
 // import React, { useEffect, useState } from 'react';

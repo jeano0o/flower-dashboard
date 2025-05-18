@@ -1,11 +1,19 @@
-import Flower from './components/Flower';
+// import Flower from './components/Flower';
 
-function App() {
+// function App() {
+//   return (
+//     <div className="app-container">
+//       <Flower />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+export default function App() {
   return (
-    <div className="app-container">
-      <Flower />
+    <div>
+      <h1>Hello from Investment Bouquet 🌸</h1>
     </div>
   );
 }
-
-export default App;
